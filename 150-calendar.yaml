@@ -1,0 +1,8 @@
+name: CSCI 150
+semester: Fall 2023
+columns: [date, topic, 8am, 11am, HW and Links]
+
+entries:
+  - date: 2023-08-23
+    topic: Intro to CS
+    HW and links: foo
