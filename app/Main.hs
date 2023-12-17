@@ -90,7 +90,7 @@ instance FromJSON Entry where
   parseJSON = withObject "Entry" $ \v ->
     Entry
       <$> v
-        .: "date"
+        .: "Date"
       <*> parseJSON (Object v)
 
 data CourseCalendar = CourseCalendar
@@ -158,9 +158,12 @@ resourceIcon :: ResourceType -> Text
 resourceIcon rsc = "icons/" <> from @String (map toLower (show rsc)) <> ".png"
 
 renderDate :: Day -> Inlines
-renderDate d = dowChar <> " " <> tshow dom <> " " <> monthAbbr
+renderDate d = dowAbbr <> " " <> tshow dom <> " " <> monthAbbr
  where
-  dowChar = text (from @String [head (show (dayOfWeek d))])
+  dowAbbr = case dayOfWeek d of
+    Thursday -> "Th"
+    Sunday -> "Su"
+    dow -> text (from @String [head (show dow)])
   (_, month, dom) = toGregorian d
 
   monthAbbr = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] !! month
