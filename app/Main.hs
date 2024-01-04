@@ -13,11 +13,13 @@ import Data.Default (def)
 import Data.List (transpose)
 import Data.Map (Map)
 import Data.Map qualified as M
+import Data.Maybe (fromMaybe)
 import Data.String (fromString)
 import Data.Text (Text)
 import Data.Time.Calendar
 import Data.Yaml
 import System.Environment (getArgs)
+import System.IO (hPutStrLn, stderr)
 import Text.Pandoc.Builder
 import Text.Pandoc.Class qualified as Pandoc
 import Text.Pandoc.Error qualified as Pandoc
@@ -113,6 +115,7 @@ data CourseCalendar = CourseCalendar
   , semester :: Text
   , period :: Period
   , columns :: [Text]
+  , headers :: Map Text Text
   , entries :: [Entry]
   }
   deriving (Eq, Show)
@@ -129,6 +132,8 @@ instance FromJSON CourseCalendar where
       <*> v
         .: "columns"
       <*> v
+        .: "headers"
+      <*> v
         .: "entries"
 
 -- Need to generalize to generate multiple rows from a single Entry
@@ -137,9 +142,10 @@ instance FromJSON CourseCalendar where
 toPandoc :: CourseCalendar -> Pandoc
 toPandoc cal =
   doc $
-    simpleTable headers rows
+    simpleTable hdrs rows
  where
-  headers = map (plain . fromString . from @Text) (columns cal)
+  hdrs = map (plain . fromString . from @Text . lookupHeader) (columns cal)
+  lookupHeader c = fromMaybe c (M.lookup c (headers cal))
   es = entries cal
 
   withSpacers :: [Maybe Entry]
