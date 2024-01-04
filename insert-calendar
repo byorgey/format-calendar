@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import sys
+import subprocess
+import in_place
+
+p = subprocess.Popen("format-calendar", stdout=subprocess.PIPE)
+
+calendar = False
+with in_place.InPlace("index.md") as idx:
+    for line in idx:
+        if line == '<!-- BEGIN CALENDAR -->\n':
+            idx.write(line)
+            idx.write('\n')
+
+            for cal_line in p.stdout:
+                idx.write(cal_line.decode('utf-8'))
+
+            idx.write('\n')
+
+            calendar = True
+        elif line == '<!-- END CALENDAR -->\n':
+            idx.write(line)
+            calendar = False
+        elif not calendar:
+            idx.write(line)
+
