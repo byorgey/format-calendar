@@ -1,4 +1,5 @@
 {-# LANGUAGE ImportQualifiedPost #-}
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 module Main where
@@ -23,7 +24,7 @@ import Text.Pandoc.Error qualified as Pandoc
 import Text.Pandoc.Extensions (githubMarkdownExtensions)
 import Text.Pandoc.Options (WriterOptions (writerExtensions))
 import Text.Pandoc.Writers.Markdown qualified as Pandoc
-import Witch (from)
+import Witch (from, into)
 
 data ResourceType = PDF | Python | Kaggle | Haskell | LaTeX | Stream | YouTube
   deriving (Eq, Ord, Show, Read, Bounded, Enum)
@@ -93,9 +94,24 @@ instance FromJSON Entry where
         .: "Date"
       <*> parseJSON (Object v)
 
+data Period = A Int | B Int deriving (Eq, Show)
+
+periodDays :: Period -> [DayOfWeek]
+periodDays = \case
+  A {} -> [Monday, Wednesday, Friday]
+  B {} -> [Tuesday, Thursday]
+
+instance FromJSON Period where
+  parseJSON = withText "Period" $ \v ->
+    case into @String v of
+      ['A', n] -> return $ A (read [n])
+      ['B', n] -> return $ B (read [n])
+      _ -> fail "Unrecognized period"
+
 data CourseCalendar = CourseCalendar
   { name :: Text
   , semester :: Text
+  , period :: Period
   , columns :: [Text]
   , entries :: [Entry]
   }
@@ -108,6 +124,8 @@ instance FromJSON CourseCalendar where
         .: "name"
       <*> v
         .: "semester"
+      <*> v
+        .: "period"
       <*> v
         .: "columns"
       <*> v
@@ -130,10 +148,10 @@ toPandoc cal =
     | overWeekend (entryDate e1) (entryDate e2) = [Nothing, Just e2]
     | otherwise = [Just e2]
   rows :: [[Blocks]]
-  rows = concatMap (maybe [[]] (renderEntry (columns cal))) withSpacers
+  rows = concatMap (maybe [[]] (renderEntry (period cal) (columns cal))) withSpacers
 
-renderEntry :: [Text] -> Entry -> [[Blocks]]
-renderEntry cols e = transposeL (map (renderRows e) cols)
+renderEntry :: Period -> [Text] -> Entry -> [[Blocks]]
+renderEntry pd cols e = transposeL (map (renderRows pd e) cols)
 
 transposeL :: Monoid a => [[a]] -> [[a]]
 transposeL [] = []
@@ -144,27 +162,33 @@ transposeL cols = transpose cols'
 
   pad col = col ++ replicate (maxLen - length col) mempty
 
-renderRows :: Entry -> Text -> [Blocks]
-renderRows e hdr = maybe [] (map (plain . renderField) . unRows) (M.lookup hdr (fields e))
+renderRows :: Period -> Entry -> Text -> [Blocks]
+renderRows pd e hdr = maybe [] (map (plain . renderField pd) . unRows) (M.lookup hdr (fields e))
 
-renderField :: Field -> Inlines
-renderField (FDate d) = renderDate d
-renderField (FPlain t) = text t
-renderField (FSeq fs) = foldl1 (\x y -> x <> " " <> y) (map renderField fs)
-renderField (FResource rsc url) = link url "" (image (resourceIcon rsc) "" (tshowlow rsc))
-renderField (FLink txt url) = link url "" (text txt)
+renderField :: Period -> Field -> Inlines
+renderField pd = \case
+  FDate d -> renderDate pd d
+  FPlain t -> text t
+  FSeq fs -> foldl1 (\x y -> x <> " " <> y) (map (renderField pd) fs)
+  FResource rsc url -> link url "" (image (resourceIcon rsc) "" (tshowlow rsc))
+  FLink txt url -> link url "" (text txt)
 
 resourceIcon :: ResourceType -> Text
 resourceIcon rsc = "icons/" <> from @String (map toLower (show rsc)) <> ".png"
 
-renderDate :: Day -> Inlines
-renderDate d = dowAbbr <> " " <> tshow dom <> " " <> monthAbbr
+renderDate :: Period -> Day -> Inlines
+renderDate pd d = dateStyle $ dowAbbr <> " " <> tshow dom <> " " <> monthAbbr
  where
-  dowAbbr = case dayOfWeek d of
+  dow = dayOfWeek d
+  dowAbbr = case dow of
     Thursday -> "Th"
     Sunday -> "Su"
-    dow -> text (from @String [head (show dow)])
+    _ -> text (from @String [head (show dow)])
   (_, month, dom) = toGregorian d
+
+  dateStyle
+    | dow `elem` periodDays pd = strong
+    | otherwise = emph
 
   monthAbbr = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] !! month
 
