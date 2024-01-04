@@ -211,14 +211,16 @@ overWeekend d1 d2 = dayOfWeek d1 >= dayOfWeek d2
 main :: IO ()
 main = do
   args <- getArgs
-  case args of
-    [calFile] -> do
-      res <- decodeFileEither calFile :: IO (Either ParseException CourseCalendar)
-      case res of
-        Left exc -> putStr $ prettyPrintParseException exc
-        Right cal -> do
-          pandocRes <- Pandoc.runIO $ do
-            cm <- Pandoc.writeMarkdown def {writerExtensions = githubMarkdownExtensions} (toPandoc cal)
-            liftIO . putStr $ from @Text cm
-          Pandoc.handleError pandocRes
-    _ -> putStrLn "Usage: format-calendar <calendar.yaml>"
+  calFile <- case args of
+    [f] -> return f
+    _ -> do
+      hPutStrLn stderr "No calendar file specified, defaulting to 'calendar.yaml'"
+      return "calendar.yaml"
+  res <- decodeFileEither calFile :: IO (Either ParseException CourseCalendar)
+  case res of
+    Left exc -> putStr $ prettyPrintParseException exc
+    Right cal -> do
+      pandocRes <- Pandoc.runIO $ do
+        cm <- Pandoc.writeMarkdown def {writerExtensions = githubMarkdownExtensions} (toPandoc cal)
+        liftIO . putStr $ from @Text cm
+      Pandoc.handleError pandocRes
