@@ -141,7 +141,7 @@ instance FromJSON CourseCalendar where
       <*> v
         .: "entries"
       <*> v
-        .: "codedir"
+        .:? "codedir" .!= "lectures"
 
 -- Need to generalize to generate multiple rows from a single Entry
 --   - Blank rows for weekends
