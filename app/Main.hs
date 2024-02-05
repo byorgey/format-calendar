@@ -49,6 +49,8 @@ instance FromJSON Rows where
 data Field where
   FDate :: Day -> Field
   FPlain :: Text -> Field
+  FEmph :: Field -> Field
+  FCode :: Text -> Field
   FSeq :: [Field] -> Field
   FResource :: ResourceType -> Text -> Field
   FLink :: Text -> Text -> Field
@@ -77,6 +79,8 @@ instance FromJSON Field where
     Array _ -> FSeq <$> parseJSON v
     Object m -> case M.assocs (KM.toMapText m) of
       [("link", Object v')] -> FLink <$> v' .: "text" <*> v' .: "url"
+      [("emph", v')] -> FEmph <$> parseJSON v'
+      [("code", v')] -> FCode <$> parseJSON v'
       [(resName, v')] -> case M.lookup resName resourcesByName of
         Just r -> FResource r <$> parseJSON v'
         Nothing -> fail "Unknown resource type"
@@ -117,6 +121,7 @@ data CourseCalendar = CourseCalendar
   , columns :: [Text]
   , headers :: Map Text Text
   , entries :: [Entry]
+  , codeDir :: Text
   }
   deriving (Eq, Show)
 
@@ -135,6 +140,8 @@ instance FromJSON CourseCalendar where
         .: "headers"
       <*> v
         .: "entries"
+      <*> v
+        .: "codedir"
 
 -- Need to generalize to generate multiple rows from a single Entry
 --   - Blank rows for weekends
@@ -154,10 +161,10 @@ toPandoc cal =
     | overWeekend (entryDate e1) (entryDate e2) = [Nothing, Just e2]
     | otherwise = [Just e2]
   rows :: [[Blocks]]
-  rows = concatMap (maybe [[]] (renderEntry (period cal) (columns cal))) withSpacers
+  rows = concatMap (maybe [[]] (renderEntry cal)) withSpacers
 
-renderEntry :: Period -> [Text] -> Entry -> [[Blocks]]
-renderEntry pd cols e = transposeL (map (renderRows pd e) cols)
+renderEntry :: CourseCalendar -> Entry -> [[Blocks]]
+renderEntry cal e = transposeL (map (renderRows cal e) (columns cal))
 
 transposeL :: Monoid a => [[a]] -> [[a]]
 transposeL [] = []
@@ -168,14 +175,16 @@ transposeL cols = transpose cols'
 
   pad col = col ++ replicate (maxLen - length col) mempty
 
-renderRows :: Period -> Entry -> Text -> [Blocks]
-renderRows pd e hdr = maybe [] (map (plain . renderField pd) . unRows) (M.lookup hdr (fields e))
+renderRows :: CourseCalendar -> Entry -> Text -> [Blocks]
+renderRows cal e hdr = maybe [] (map (plain . renderField cal) . unRows) (M.lookup hdr (fields e))
 
-renderField :: Period -> Field -> Inlines
-renderField pd = \case
-  FDate d -> renderDate pd d
+renderField :: CourseCalendar -> Field -> Inlines
+renderField cal = \case
+  FDate d -> renderDate (period cal) d
   FPlain t -> text t
-  FSeq fs -> foldl1 (\x y -> x <> " " <> y) (map (renderField pd) fs)
+  FEmph f -> emph (renderField cal f)
+  FCode f -> link (codeDir cal <> "/" <> f) "" (text f)
+  FSeq fs -> foldl1 (\x y -> x <> " " <> y) (map (renderField cal) fs)
   FResource rsc url -> link url "" (image (resourceIcon rsc) "" (tshowlow rsc))
   FLink txt url -> link url "" (text txt)
 
