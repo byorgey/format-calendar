@@ -1,0 +1,322 @@
+name: CSCI 322, Computing Systems Organization
+semester: Spring 2024
+period: B2
+columns: [Date, Topic, Reading, Projects]
+headers:
+  Reading: 'Reading & Links'
+  Projects: 'Due dates (recommended A schedule)'
+
+entries:
+  - Date: 2024-01-16
+    Topic:
+      emph: No class (snow)
+
+  - Date: 2024-01-18
+    Topic:
+      - Boolean logic
+      - stream: 'https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F1%5F18%5F%20intro%2C%20boolean%20logic%2D20240118%5F094810%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview'
+      - pdf: '/lectures/2024-01-18-boolean-logic.pdf'
+    Reading:
+      rows:
+        - Chapters 1 and 2
+        - Appendix A
+    Projects:
+      rows:
+        -
+          - link:
+              text: Grading contract and work plan
+              url: '#grading-contracts'
+          - due
+        - link:
+            text: CSCI student info survey
+            url: https://forms.gle/VLRVHjUAisWP5R9J8
+
+  - Date: 2024-01-19
+    Projects:
+      link:
+        text: 'Project 1: Boolean logic'
+        url: projects/01-boolean-logic.html
+
+
+  - Date: 2024-01-23
+    Topic:
+      - Boolean arithmetic (no class meeting)
+      - youtube: https://youtu.be/5Vv5afGWCdo
+      - youtube: https://www.youtube.com/watch?v=tSLpUCtt8ms
+    Reading: Chapter 3
+
+  - Date: 2024-01-24
+    Projects:
+      link:
+        text: 'Project 2: Boolean arithmetic'
+        url: projects/02-boolean-arithmetic.html
+
+  - Date: 2024-01-25
+    Topic:
+      - Sequential logic & memory
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F1%5F25%5F%20memory%2D20240125%5F094618%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-01-25-memory.pdf
+    Reading: Chapter 3
+
+  - Date: 2024-01-29
+    Projects:
+      link:
+        text: 'Project 3: Memory'
+        url: projects/03-memory.html
+  - Date: 2024-01-30
+    Topic:
+      - Machine & assembly language
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F1%5F30%5F%20machine%20%2B%20assembly%20language%2D20240130%5F094641%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-01-30-machine-and-assembly.pdf
+    Reading:
+      rows:
+        - Chapter 4
+        - code: example.asm
+        - code: example2.asm
+  - Date: 2024-02-01
+    Topic:
+      - Hack assembly examples
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F1%5F%20Assembly%20examples%2D20240201%5F094609%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-02-01-screen-kbd.pdf
+    Reading:
+      rows:
+        - code: screen.asm
+        - code: kbd.asm
+        - code: kbd2.asm
+        - code: sum.asm
+        - code: sum2.asm
+  - Date: 2024-02-05
+    Projects:
+      link:
+        text: 'Project 4: Machine language'
+        url: projects/04-machine-language.html
+  - Date: 2024-02-06
+    Topic:
+      - Turing machine CPU
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F6%5F%20Turing%20machine%20CPU%2D20240206%5F094709%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-02-06-Turing-CPU.pdf
+    Reading: Chapter 5
+  - Date: 2024-02-08
+    Topic:
+      - More Turing machine CPU; CPU history
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F8%5F%20TM%20%2B%20Hack%20CPU%2C%20CPU%20history%2D20240208%5F094916%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-02-06-Turing-CPU.pdf
+      - pdf: lectures/2024-02-08-CPU-history.pdf
+  - Date: 2024-02-12
+    Projects:
+      link:
+        text: 'Project 5: Computer architecture'
+        url: projects/05-computer-architecture.html
+  - Date: 2024-02-13
+    Topic:
+      - Assembler
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F13%5F%20Assembler%2D20240213%5F094536%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-02-13-assembler.pdf
+    Reading:
+      rows:
+        - Chapter 6
+        - link:
+            text: Assembler.py
+            url: lectures/assembler/Assembler.py
+        - link:
+            text: example.tm
+            url: lectures/assembler/example.tm
+  - Date: 2024-02-15
+    Topic:
+      - 6502 chip
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F15%5F%20MOS%206502%20chip%2D20240215%5F094741%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-02-15-MOS-6502.pdf
+
+  - Date: 2024-02-19
+    Projects:
+      link:
+        text: 'Project 6: Assembler'
+        url: projects/06-assembler.html
+  - Date: 2024-02-20
+    Topic:
+      - Virtual machines + stacks
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F20%5F%20VM%20arithmetic%2D20240220%5F094536%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-02-20-VM-stack.pdf
+    Reading: Chapter 7
+  - Date: 2024-02-22
+    Topic:
+      - VM to Hack translation
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F22%5F%20VM%20translation%20I%2D20240222%5F094559%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-02-22-VM.pdf
+    Reading: Chapter 8
+    Projects: Grading contract evaluation I due
+
+  - Date: 2024-02-26
+    Projects:
+      link:
+        text: 'Project 7: VM I: Stack Arithmetic'
+        url: projects/07-stack-arithmetic.html
+  - Date: 2024-02-27
+    Topic:
+      - VM branching & function instructions
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F27%5F%20VM%20translation%5F%20branching%20%2B%20functions%2D20240227%5F094744%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-02-27-VM-functions.pdf
+    Reading:
+      rows:
+        - Chapter 8
+        - code:
+            VMfiles.py
+  - Date: 2024-02-29
+    Topic: Project work day / open office hours
+
+  - Date: 2024-03-04
+    Projects:
+      link:
+        text: 'Project 8: VM II: Program control'
+        url: projects/08-program-control.html
+  - Date: 2024-03-05
+    Topic:
+      emph:
+        'No class (Dr. Yorgey sick)'
+  - Date: 2024-03-07
+    Topic:
+      emph:
+        'No class (Dr. Yorgey sick)'
+
+  - Date: 2024-03-11
+    Projects:
+      link:
+        text: 'Project 9: High-level programming'
+        url: projects/09-high-level.html
+  - Date: 2024-03-12
+    Topic:
+      - Introduction to Jack
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F12%5F%20Introduction%20to%20Jack%2D20240312%5F094625%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-03-12-Jack-intro.pdf
+    Reading: Chapter 9
+  - Date: 2024-03-14
+    Topic:
+      - "Jack example: Monotris"
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F14%5F%20Jack%20example%5F%20monotris%2D20240314%5F094529%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+
+  - Date: 2024-03-19
+    Topic:
+      emph: No class (spring break)
+  - Date: 2024-03-21
+    Topic:
+      emph: No class (spring break)
+
+  - Date: 2024-03-26
+    Topic:
+      - Tokenizing input
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F26%5F%20tokenizing%2D20240326%5F094543%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-03-26-tokenizing.pdf
+    Reading:
+      rows:
+        - Chapter 10
+        - code:
+            compiler24/Tokenizer.py
+        - code:
+            compiler24/Main.py
+  - Date: 2024-03-28
+    Topic:
+      - Tokenizer; a simple LISP compiler
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F28%5F%20more%20tokenizing%2D20240328%5F094552%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Reading:
+      rows:
+        - code:
+            compiler24/Tokenizer.py
+        - code:
+            compiler24/LISPCompiler.py
+  - Date: 2024-03-29
+    Projects:
+      link:
+        text: 'Project 10/11A: Tokenizer'
+        url: projects/10a-tokenizer.html
+
+  - Date: 2024-04-02
+    Topic:
+      - Compiling Jack to VM
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F1%5F%20Compilation%2D20240402%5F094516%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopiedShareExpControl%2Eview
+    Reading:
+      rows:
+        - code: compiler24/lisp.txt
+        - code: compiler24/LISPCompiler.py
+        - code: compiler24/VMWriter.py
+        - code: compiler24/jack.txt
+        - code: compiler24/jack_compiler.txt
+  - Date: 2024-04-03
+    Projects:
+      link:
+        text: 'Project 10/11B: Statements'
+        url: projects/1011b-statements.html
+  - Date: 2024-04-04
+    Topic:
+      - 'Compiling: symbol tables, conditionals, and loops'
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F4%5F%20symbol%20tables%2C%20expressions%2C%20if%2Bwhile%2D20240404%5F094544%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopiedShareExpControl%2Eview
+    Projects: Grading contract evaluation II due
+    Reading:
+      rows:
+        - code: compiler24/jack.txt
+        - code: compiler24/jack_compiler.txt
+        - code: compiler24/AlphaWhere.jack
+        - Chapter 11
+        - link:
+            text: 'GO TO statement considered harmful'
+            url: https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf
+
+  - Date: 2024-04-08
+    Projects:
+      link:
+        text: 'Project 10/11C: Conditionals and Loops'
+        url: projects/1011c-cond-loops.html
+  - Date: 2024-04-09
+    Topic:
+      - Compiling arrays
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F9%5F%20compiling%20arrays%2D20240409%5F094545%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopiedShareExpControl%2Eview
+    Reading:
+      code: compiler24/Average.jack
+  - Date: 2024-04-11
+    Topic:
+      - Compiling classes
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F11%5F%20compiling%20classes%2D20240411%5F094604%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Reading:
+      rows:
+        - code: compiler24/Square/Main.jack
+        - code: compiler24/Square/SquareGame.jack
+        - code: compiler24/Square/Square.jack
+        - code: compiler24/Pong/PongGame.jack
+
+  - Date: 2024-04-15
+    Projects:
+      link:
+        text: 'Project 10/11D: Classes and Arrays'
+        url: projects/1011d-classes-arrays.html
+  - Date: 2024-04-16
+    Topic:
+      - Operating system I
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F16%5F%20OS%20I%20%28Sys%2C%20Array%2C%20String%2C%20Keyboard%2C%20Math%29%2D20240416%5F094513%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-04-16-OS-I.pdf
+    Reading: Chapter 12
+  - Date: 2024-04-18
+    Topic:
+      - Operating system II
+      - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F18%5F%20OS%20II%20%28Screen%2C%20Output%2C%20Memory%29%2D20240418%5F094513%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-04-18-OS-II.pdf
+
+  - Date: 2024-04-22
+    Projects:
+      link:
+        text: 'Project 12A: Operating System I'
+        url: projects/12-OS.html
+  - Date: 2024-04-23
+    Topic:
+      rows:
+        -
+          - Memory allocation and randomness
+          - stream: https://hendrix.sharepoint.com/sites/Section_29479/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29479%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F23%5F%20OS%20II%2C%20randomness%2D20240423%5F094716%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+          - pdf: 2024-04-23-randomness.pdf
+        - Course evaluations
+
+  - Date: 2024-04-25
+    Topic: Project work day
+  - Date: 2024-04-26
+    Projects:
+      link:
+        text: 'Project 12B: Operating System II'
+        url: projects/12-OS.html

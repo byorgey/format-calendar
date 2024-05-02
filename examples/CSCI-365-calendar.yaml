@@ -1,0 +1,367 @@
+name: CSCI 365, Functional Programming
+semester: Spring 2024
+period: A1
+columns: [Date, Topic, Class, Reading, Due]
+headers:
+  Reading: 'Reading & Links'
+  Class: 'Code'
+codedir: 'inclass/24G'
+
+entries:
+  - Date: 2024-01-17
+    Topic:
+      emph: 'No class (snow)'
+  - Date: 2024-01-19
+    Topic:
+      - Rewriting systems
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F1%5F19%5F%20rewriting%2D20240119%5F081131%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-01-19-rewriting.pdf
+    Reading:
+      link:
+        text: Verse Language Reference
+        url: https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference
+    Due:
+      rows:
+        - link:
+            text: Grading contract
+            url: '#grading-contracts'
+        - link:
+            text: CSCI student info survey
+            url: https://forms.gle/VLRVHjUAisWP5R9J8
+
+  - Date: 2024-01-22
+    Topic:
+      - Substitution; Haskell types and functions
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F1%5F22%5F%20Substitution%2C%20intro%20to%20Haskell%2D20240122%5F081115%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-01-22-substitution.pdf
+    Class:
+      code: HaskellIntro.hs
+    Reading: CFP Chapters 1 & 2
+  - Date: 2024-01-24
+    Topic:
+      - Functions
+      - youtube: https://youtu.be/f0h7s5805Fc
+    Class:
+      code: HaskellIntro.hs
+    Reading: CFP Chapters 2 & 3
+  - Date: 2024-01-26
+    Topic:
+      - More functions, tuples, recursion
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F1%5F26%5F%20functions%20and%20pattern%20matching%2D20240126%5F081044%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: HaskellIntro.hs
+    Due:
+      link:
+        text: 'PS 1: Rewriting'
+        url: 'problem-sets/01-rewriting/rewriting.pdf'
+
+  - Date: 2024-01-29
+    Topic:
+      - Algebraic data types and pattern matching
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F1%5F29%5F%20Algebraic%20Data%20Types%2D20240129%5F081103%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: ADT.hs
+  - Date: 2024-01-31
+    Topic:
+      - Algebraic data types and polymorphism
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F1%5F31%5F%20ADTs%20and%20polymorphism%2D20240131%5F081013%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      rows:
+        - code: ADT.hs
+        - code: Polymorphism.hs
+  - Date: 2024-02-02
+    Topic:
+      - Polymorphism
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F1%5F2%5F%20polymorphism%2D20240202%5F081036%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Polymorphism.hs
+    Due:
+      link:
+        text: 'PS 2: Functions & Haskell'
+        url: 'problem-sets/02-functions/functions.pdf'
+
+  - Date: 2024-02-05
+    Topic:
+      - Lists and list comprehensions
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F5%5F%20Haskell%20lists%2D20240205%5F081129%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Reading: CFP Chapters 5 & 6
+    Class:
+      code: Lists.hs
+  - Date: 2024-02-07
+    Topic:
+      - Standard list functions
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F11%5F7%5F%20List%20functions%2D20240207%5F081045%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Reading: CFP Chapters 6 & 7
+    Class:
+      code: Lists.hs
+  - Date: 2024-02-09
+    Topic:
+      - More list functions
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F9%5F%20More%20list%20functions%2C%20pattern%20matching%2D20240209%5F081212%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Lists.hs
+    Due:
+      link:
+        text: 'PS 3: ADTs and polymorphism'
+        url: 'problem-sets/03-ADTs-polymorphism/ADTs-polymorphism.pdf'
+
+  - Date: 2024-02-12
+    Topic:
+      - Higher-order functions and recursion patterns
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F1%5F12%5F%20higher%2Dorder%20functions%20%5F%20recursion%20patterns%2D20240212%5F081201%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Reading: CFP Chapter 10
+    Class:
+      code: RecursionPatterns.hs
+  - Date: 2024-02-14
+    Topic:
+      - More recursion patterns, foldr
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F14%5F%20more%20recursion%20patterns%2D20240214%5F081108%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Reading: CFP Chapters 10 & 11
+    Class:
+      code: RecursionPatterns.hs
+  - Date: 2024-02-16
+    Topic:
+      - Wholemeal programming
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F16%5F%20Wholemeal%20Programming%2D20240216%5F081250%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Wholemeal.hs
+    Reading: CFP Chapter 11
+    Due:
+      link:
+        text: 'PS 4: Lists'
+        url: 'problem-sets/04-lists/lists.pdf'
+
+  - Date: 2024-02-19
+    Topic:
+      emph:
+        No class (Mid-winter break)
+  - Date: 2024-02-21
+    Topic:
+      - I/O
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F21%5F%20I%5FO%2D20240221%5F081033%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      rows:
+        - code: SideEffects.py
+        - code: IO.hs
+  - Date: 2024-02-22
+    Due:
+      rows:
+        - link:
+            text: Grading contract evaluation I
+            url: '#grading-contracts'
+  - Date: 2024-02-23
+    Topic:
+      - More I/O
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F23%5F%20More%20I%5FO%2D20240223%5F081032%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: IO.hs
+    Due:
+      link:
+        text: 'PS 5: Higher-Order Functions and Recursion Patterns'
+        url: 'problem-sets/05-higher-order/higher-order.pdf'
+
+  - Date: 2024-02-26
+    Topic:
+      - Case expressions & currying
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F26%5F%20case%2C%20currying%20%2B%20partial%20application%2D20240226%5F081035%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      rows:
+        - code: Case.hs
+        - code: Currying.hs
+  - Date: 2024-02-28
+    Topic:
+      - Type classes
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F2%5F28%5F%20type%20classes%2D20240228%5F081106%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: TypeClasses.hs
+  - Date: 2024-03-01
+    Topic:
+      - Semigroups & monoids
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F1%5F%20Monoids%2D20240301%5F081133%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Monoids.hs
+    Due:
+      link:
+        text: 'PS 6: I/O'
+        url: 'problem-sets/06-IO/IO.pdf'
+
+  - Date: 2024-03-04
+    Topic:
+      - More monoids, newtypes
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F4%5F%20more%20monoids%20%2B%20newtypes%2D20240304%5F081039%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Monoids.hs
+    Due:
+      link:
+        text: Project 1
+        url: projects/game/game.html
+  - Date: 2024-03-06
+    Topic:
+      emph:
+        No class (Dr. Yorgey sick)
+  - Date: 2024-03-08
+    Topic:
+      emph:
+        No class (Dr. Yorgey sick)
+
+  - Date: 2024-03-11
+    Topic:
+      - Kinds & functors
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F11%5F%20kinds%20and%20Functors%2D20240311%5F081207%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      rows:
+        - code: Kinds.hs
+        - code: Functor.hs
+  - Date: 2024-03-13
+    Topic:
+      - Functors
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F13%5F%20more%20Functors%2D20240313%5F081044%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Functor.hs
+    Due:
+      link:
+        text: 'PS 7: Type classes and monoids'
+        url: 'problem-sets/07-monoids/monoids.pdf'
+  - Date: 2024-03-15
+    Topic:
+      - Laziness
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F15%5F%20Laziness%2D20240315%5F081235%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Laziness.hs
+
+  - Date: 2024-03-18
+    Topic:
+      emph:
+        Spring break
+
+  - Date: 2024-03-25
+    Topic:
+      - Applicative
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F25%5F%20Applicative%2D20240325%5F081029%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Applicative.hs
+  - Date: 2024-03-27
+    Topic:
+      - More Applicative
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F27%5F%20more%20Applicative%2D20240327%5F081052%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Applicative.hs
+  - Date: 2024-03-29
+    Topic:
+      - Applicative examples
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F3%5F29%5F%20Applicative%20examples%2D20240329%5F081238%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Applicative.hs
+
+  - Date: 2024-04-01
+    Topic:
+      - Scanner
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F1%5F%20Scanner%2D20240401%5F081102%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: Scanner.hs
+  - Date: 2024-04-03
+    Topic:
+      - Introduction to Monads
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F3%5F%20Monad%2D20240403%5F081130%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopiedShareExpControl%2Eview
+    Class:
+      rows:
+        - code: Scanner.hs
+        - code: Monad.hs
+        - code: MonadInstances.hs
+  - Date: 2024-04-04
+    Due:
+      rows:
+        - link:
+            text: Grading contract evaluation II
+            url: '#grading-contracts'
+  - Date: 2024-04-05
+    Topic:
+      - Monads
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F5%5F%20More%20monads%2D20240405%5F081337%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopiedShareExpControl%2Eview
+    Class:
+      code: Monad.hs
+    Due:
+      link:
+        text: 'PS 8: Applicative'
+        url: 'problem-sets/08-applicative/applicative.pdf'
+
+  - Date: 2024-04-08
+    Topic:
+      emph:
+        No class (solar eclipse)
+  - Date: 2024-04-09
+    Due: Final project proposal
+  - Date: 2024-04-10
+    Topic:
+      - Lambda calculus
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F10%5F%20lambda%20calculus%2D20240410%5F081119%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - pdf: lectures/2024-04-10-lambda-calculus.pdf
+  - Date: 2024-04-12
+    Topic:
+      - More lambda calculus
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F12%5F%20more%20lambda%20calculus%2D20240412%5F081050%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      rows:
+        - code: LambdaCalc.hs
+        - link:
+            text: nat.lc
+            url: tools/lc/nat.lc
+        - link:
+            text: lc.tgz
+            url: tools/lc.tgz
+  - Date: 2024-04-13
+    Due:
+      link:
+        text: 'PS 9: Monad'
+        url: 'problem-sets/09-monad/monad.pdf'
+
+  - Date: 2024-04-15
+    Topic:
+      - Introduction to Agda
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F15%5F%20intro%20to%20Agda%2D20240415%5F081142%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: intro.agda
+  - Date: 2024-04-17
+    Topic:
+      - More Agda, Curry-Howard Isomorphism
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F17%5F%20Agda%20II%2C%20Curry%2DHoward%2D20240417%5F081021%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - agda: https://agdapad.quasicoherent.io/#DelightedPicturesExplodeVery
+    Class:
+      rows:
+        - code: intro.agda
+  - Date: 2024-04-19
+    Topic:
+      - Agda, proving properties of addition
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F19%5F%20more%20Agda%2D20240419%5F081223%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: intro.agda
+    Due:
+      link:
+        text: 'PS 10: Lambda calculus'
+        url: 'problem-sets/10-lambda-calc/lambda-calc.pdf'
+
+  - Date: 2024-04-22
+    Topic:
+      - Agda, proving properties of programs
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F22%5F%20proving%20programs%2D20240422%5F081030%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    Class:
+      code: programs.agda
+  - Date: 2024-04-24
+    Topic:
+      - Simply typed lambda calculus, encoding type systems in Agda
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F24%5F%20bonus%20topic%20I%2D20240424%5F081056%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - agda: https://agdapad.quasicoherent.io/#ProperDowntownsDesertAfterwards
+      - pdf: lectures/2024-04-24-STLC.pdf
+    Class:
+      code: LambdaCalc.agda
+  - Date: 2024-04-26
+    Topic:
+      - Encoding STLC in Agda
+      - stream: https://hendrix.sharepoint.com/sites/Section_29478/_layouts/15/stream.aspx?id=%2Fsites%2FSection%5F29478%2FShared%20Documents%2FGeneral%2FRecordings%2F4%5F26%5F%20embedding%20STLC%20in%20Agda%2D20240426%5F081144%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+      - agda: https://agdapad.quasicoherent.io/#ProperDowntownsDesertAfterwards
+    Class:
+      code: LambdaCalc.agda
+
+  - Date: 2024-05-03
+    Topic: Final project presentations (2-5pm)
+    Due: Final project
