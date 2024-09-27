@@ -16,6 +16,7 @@ import Data.Map qualified as M
 import Data.Maybe (fromMaybe)
 import Data.String (fromString)
 import Data.Text (Text)
+import Data.Text qualified as T
 import Data.Time.Calendar
 import Data.Yaml
 import System.Environment (getArgs)
@@ -85,7 +86,7 @@ instance FromJSON Field where
       [("code", v')] -> FCode <$> parseJSON v'
       [(resName, v')] -> case M.lookup resName resourcesByName of
         Just r -> FResource r <$> parseJSON v'
-        Nothing -> fail "Unknown resource type"
+        Nothing -> fail $ "Unknown resource type '" ++ T.unpack resName ++ "'"
       _ -> fail "Unknown fields"
     _ -> fail "Can't parse field"
 
