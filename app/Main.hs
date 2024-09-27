@@ -28,7 +28,7 @@ import Text.Pandoc.Options (WriterOptions (writerExtensions))
 import Text.Pandoc.Writers.Markdown qualified as Pandoc
 import Witch (from, into)
 
-data ResourceType = PDF | Python | Kaggle | Haskell | LaTeX | Stream | YouTube | Agda
+data ResourceType = PDF | Python | Kaggle | Haskell | LaTeX | Stream | YouTube | Agda | POGIL
   deriving (Eq, Ord, Show, Read, Bounded, Enum)
 
 resourcesByName :: Map Text ResourceType
@@ -50,6 +50,7 @@ data Field where
   FDate :: Day -> Field
   FPlain :: Text -> Field
   FEmph :: Field -> Field
+  FBold :: Field -> Field
   FCode :: Text -> Field
   FSeq :: [Field] -> Field
   FResource :: ResourceType -> Text -> Field
@@ -80,6 +81,7 @@ instance FromJSON Field where
     Object m -> case M.assocs (KM.toMapText m) of
       [("link", Object v')] -> FLink <$> v' .: "text" <*> v' .: "url"
       [("emph", v')] -> FEmph <$> parseJSON v'
+      [("bold", v')] -> FBold <$> parseJSON v'
       [("code", v')] -> FCode <$> parseJSON v'
       [(resName, v')] -> case M.lookup resName resourcesByName of
         Just r -> FResource r <$> parseJSON v'
@@ -141,7 +143,8 @@ instance FromJSON CourseCalendar where
       <*> v
         .: "entries"
       <*> v
-        .:? "codedir" .!= "lectures"
+        .:? "codedir"
+        .!= "lectures"
 
 -- Need to generalize to generate multiple rows from a single Entry
 --   - Blank rows for weekends
@@ -183,6 +186,7 @@ renderField cal = \case
   FDate d -> renderDate (period cal) d
   FPlain t -> text t
   FEmph f -> emph (renderField cal f)
+  FBold f -> strong (renderField cal f)
   FCode f -> link (codeDir cal <> "/" <> f) "" (text f)
   FSeq fs -> foldl1 (\x y -> x <> " " <> y) (map (renderField cal) fs)
   FResource rsc url -> link url "" (image (resourceIcon rsc) "" (tshowlow rsc))
