@@ -23,7 +23,7 @@ executable format-calendar
     main-is:          Main.hs
     -- other-modules:
     -- other-extensions:
-    build-depends:    base >=4.18.1.0 && < 4.20,
+    build-depends:    base >=4.18.1.0 && < 4.22,
                       yaml ^>= 0.11,
                       aeson >= 2.1 && < 2.3,
                       pandoc-types ^>= 1.23,

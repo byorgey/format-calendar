@@ -29,7 +29,7 @@ import Text.Pandoc.Options (WriterOptions (writerExtensions))
 import Text.Pandoc.Writers.Markdown qualified as Pandoc
 import Witch (from, into)
 
-data ResourceType = PDF | Python | Kaggle | Haskell | LaTeX | Stream | YouTube | Agda | POGIL | Text
+data ResourceType = PDF | Python | Kaggle | Haskell | LaTeX | Stream | YouTube | Agda | POGIL | Text | Disco
   deriving (Eq, Ord, Show, Read, Bounded, Enum)
 
 resourcesByName :: Map Text ResourceType
