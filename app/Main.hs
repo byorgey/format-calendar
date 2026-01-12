@@ -29,7 +29,7 @@ import Text.Pandoc.Options (WriterOptions (writerExtensions))
 import Text.Pandoc.Writers.Markdown qualified as Pandoc
 import Witch (from, into)
 
-data ResourceType = PDF | Python | Kaggle | Haskell | LaTeX | Stream | YouTube | Agda | POGIL | Text | Disco
+data ResourceType = PDF | Python | Kaggle | Haskell | LaTeX | Stream | YouTube | Agda | POGIL | Text | Disco | MP3
   deriving (Eq, Ord, Show, Read, Bounded, Enum)
 
 resourcesByName :: Map Text ResourceType
@@ -55,7 +55,7 @@ data Field where
   FCode :: Text -> Field
   FSeq :: [Field] -> Field
   FResource :: ResourceType -> Text -> Field
-  FLink :: Text -> Text -> Field
+  FLink :: Text -> Maybe Text -> Field
   deriving (Eq, Show)
 
 -- 2023-10-19   -- Date (try parsing as date first)
@@ -80,7 +80,7 @@ instance FromJSON Field where
     String t -> (FDate <$> parseJSON v) <|> pure (FPlain t)
     Array _ -> FSeq <$> parseJSON v
     Object m -> case M.assocs (KM.toMapText m) of
-      [("link", Object v')] -> FLink <$> v' .: "text" <*> v' .: "url"
+      [("link", Object v')] -> FLink <$> v' .: "text" <*> v' .:? "url"
       [("emph", v')] -> FEmph <$> parseJSON v'
       [("bold", v')] -> FBold <$> parseJSON v'
       [("code", v')] -> FCode <$> parseJSON v'
@@ -191,7 +191,8 @@ renderField cal = \case
   FCode f -> link (codeDir cal <> "/" <> f) "" (text f)
   FSeq fs -> foldl1 (\x y -> x <> " " <> y) (map (renderField cal) fs)
   FResource rsc url -> link url "" (image (resourceIcon rsc) "" (tshowlow rsc))
-  FLink txt url -> link url "" (text txt)
+  FLink txt Nothing -> text txt
+  FLink txt (Just url) -> link url "" (text txt)
 
 resourceIcon :: ResourceType -> Text
 resourceIcon rsc = "icons/" <> from @String (map toLower (show rsc)) <> ".png"
