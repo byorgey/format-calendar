@@ -29,7 +29,7 @@ import Text.Pandoc.Options (WriterOptions (writerExtensions))
 import Text.Pandoc.Writers.Markdown qualified as Pandoc
 import Witch (from, into)
 
-data ResourceType = PDF | Python | Kaggle | Haskell | LaTeX | Stream | YouTube | Agda | POGIL | Text | Disco | MP3 | Forester
+data ResourceType = PDF | Python | Kaggle | Haskell | LaTeX | Stream | YouTube | Agda | POGIL | Text | Disco | MP3 | Forest
   deriving (Eq, Ord, Show, Read, Bounded, Enum)
 
 resourcesByName :: Map Text ResourceType
@@ -190,9 +190,17 @@ renderField cal = \case
   FBold f -> strong (renderField cal f)
   FCode f -> link (codeDir cal <> "/" <> f) "" (text f)
   FSeq fs -> foldl1 (\x y -> x <> " " <> y) (map (renderField cal) fs)
-  FResource rsc url -> link url "" (image (resourceIcon rsc) "" (tshowlow rsc))
+  FResource rsc url -> link (resourceURL rsc url) "" (image (resourceIcon rsc) "" (tshowlow rsc))
   FLink txt Nothing -> text txt
   FLink txt (Just url) -> link url "" (text txt)
+
+forest :: Text
+forest = "http://ozark.hendrix.edu/~yorgey/forest/"
+
+resourceURL :: ResourceType -> Text -> Text
+resourceURL Forest url
+  | not ("http" `T.isPrefixOf` url) = forest <> url
+resourceURL _ url = url
 
 resourceIcon :: ResourceType -> Text
 resourceIcon rsc = "icons/" <> from @String (map toLower (show rsc)) <> ".png"
